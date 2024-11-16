@@ -1,9 +1,27 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",          // Define la base de búsqueda para los módulos
-      "paths": {
-        "@/lib/*": ["lib/*"]    // Configura el alias @/lib/ para que apunte a la carpeta lib/
-      }
+  "compilerOptions": {
+    "target": "es5",                      // Define la versión de ECMAScript para la salida de JavaScript. `es5` es una buena opción para compatibilidad con la mayoría de los navegadores.
+    "lib": ["dom", "esnext"],              // Define las bibliotecas que se incluirán en la compilación, como el soporte para `DOM` y `ESNext`.
+    "allowJs": true,                       // Permite compilar archivos `.js` junto con los archivos `.ts` o `.tsx` en el proyecto.
+    "skipLibCheck": true,                  // Omite la comprobación de tipos en las bibliotecas de tipo (útil para mejorar el tiempo de compilación).
+    "esModuleInterop": true,               // Asegura que las importaciones por defecto funcionen correctamente, incluso para los módulos CommonJS.
+    "strict": true,                        // Habilita todas las opciones de comprobación estricta para un código más seguro.
+    "forceConsistentCasingInFileNames": true, // Asegura que el uso de mayúsculas y minúsculas en los nombres de archivo sea consistente.
+    "module": "esnext",                    // Usa el sistema de módulos de ESNext para los archivos generados.
+    "moduleResolution": "node",            // Establece cómo se deben resolver los módulos, usando el enfoque de Node.js.
+    "resolveJsonModule": true,             // Permite importar archivos JSON como módulos.
+    "jsx": "react",                        // Configura el modo JSX para trabajar con React. Esto es necesario para proyectos que usen JSX/TSX.
+    "baseUrl": ".",                        // Establece la base para las rutas relativas, normalmente se usa `.` para indicar la raíz del proyecto.
+    "paths": {                             // Define los alias de las rutas de importación
+      "@/*": ["./*"]
     }
-  }
-  
+  },
+  "include": [
+    "next-env.d.ts",                       // Asegura que los tipos de Next.js sean incluidos
+    "**/*.ts",                             // Incluye todos los archivos .ts
+    "**/*.tsx"                             // Incluye todos los archivos .tsx
+  ],
+  "exclude": [
+    "node_modules"                         // Excluye la carpeta node_modules del proceso de compilación.
+  ]
+}
